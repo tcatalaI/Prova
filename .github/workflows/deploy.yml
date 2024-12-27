@@ -24,9 +24,13 @@ jobs:
       - name: Build Angular app
         run: npm run build -- --base-href "https://tcatalaI.github.io/Prova/"
 
+      - name: Configure Git
+        run: |
+          git config --global user.name "Tolo"
+          git config --global user.email "tcatala@iedib.net"
+
       - name: Deploy to GitHub Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npx angular-cli-ghpages --dir=dist/my-angular-app --no-silent
-          
