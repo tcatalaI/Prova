@@ -25,6 +25,8 @@ jobs:
         run: npm run build -- --base-href "https://tcatalaI.github.io/Prova/"
 
       - name: Deploy to GitHub Pages
-        run: npx angular-cli-ghpages --dir=dist/my-angular-app
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npx angular-cli-ghpages --dir=dist/my-angular-app --no-silent
+          
